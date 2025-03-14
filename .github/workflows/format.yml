@@ -1,1 +1,29 @@
+name: Terraform Format Check
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  terraform-format:
+    name: Check Terraform Formatting
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+
+      - name: Run Terraform Format
+        run: terraform fmt -check -recursive
+
+      - name: Fail if Formatting Issues are Found
+        if: failure()
+        run: exit 1
 
