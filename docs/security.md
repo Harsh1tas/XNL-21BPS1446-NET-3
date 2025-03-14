@@ -11,7 +11,5 @@ This document covers IAM roles, firewall rules, and Web Application Firewall (WA
 ## **🔹 Web Application Firewall (WAF)**
 - AWS WAF, GCP Cloud Armor, and Azure WAF configurations are in [`security/waf.tf`](../security/waf.tf).
 
-For security troubleshooting, refer to [Troubleshooting Guide](troubleshooting.md).![graphviz (2)](https://github.com/user-attachments/assets/b13f4920-abc5-4031-b093-700c49189aa0)
-
-
-
+For security troubleshooting, refer to [Troubleshooting Guide](troubleshooting.md).
+![graphviz (4)](https://github.com/user-attachments/assets/2911bc40-2fe6-47a0-906a-b6a92f770569)
