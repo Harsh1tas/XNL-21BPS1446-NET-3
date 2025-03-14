@@ -16,4 +16,5 @@ This document explains the networking setup, including VPC/VNet peering and VPN 
 - **GCP Networking**: [`networking/gcp-network.tf`](../networking/gcp-network.tf)
 - **Azure Networking**: [`networking/azure-network.tf`](../networking/azure-network.tf)
 
-For networking issues, check the [Troubleshooting Guide](troubleshooting.md).![Uploading graphviz (1).png…]()
+For networking issues, check the [Troubleshooting Guide](troubleshooting.md).
+![graphviz (1)](https://github.com/user-attachments/assets/0ebfd816-bee3-4a45-a1aa-9852e6d454c6)
