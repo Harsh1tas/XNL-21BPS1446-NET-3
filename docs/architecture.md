@@ -16,4 +16,6 @@ This project sets up and manages cloud resources across AWS, GCP, and Azure usin
 - **Troubleshooting**: [Troubleshooting Guide](troubleshooting.md)
 
 For complete infrastructure files, see the **[GitHub Repository](../README.md)**.
+![graphviz](https://github.com/user-attachments/assets/14a0fecf-b944-4deb-a8e2-f75476a7becd)
+
 
