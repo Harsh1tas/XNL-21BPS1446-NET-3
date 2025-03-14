@@ -1,1 +1,37 @@
+name: Terraform Security Scan
+
+on:
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: "0 0 * * 1"  # Runs every Monday at midnight UTC
+
+jobs:
+  security-scan:
+    name: Run Security Scan
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+
+      - name: Install Trivy
+        run: |
+          sudo apt-get install wget -y
+          wget https://github.com/aquasecurity/trivy/releases/latest/download/trivy_Linux-64bit.tar.gz
+          tar zxvf trivy_Linux-64bit.tar.gz
+          sudo mv trivy /usr/local/bin/
+      
+      - name: Scan Terraform Code with Trivy
+        run: trivy fs --scanners misconfig --severity HIGH,CRITICAL --exit-code 1 ./terraform/
+
+      - name: Install Checkov
+        run: pip install checkov
+
+      - name: Scan Terraform Code with Checkov
+        run: checkov -d ./terraform/ --quiet --soft-fail
 
