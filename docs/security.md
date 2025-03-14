@@ -13,3 +13,4 @@ This document covers IAM roles, firewall rules, and Web Application Firewall (WA
 
 For security troubleshooting, refer to [Troubleshooting Guide](troubleshooting.md).
 
+![Uploading graphviz (2).png…]()
