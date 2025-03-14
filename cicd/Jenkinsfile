@@ -1,1 +1,41 @@
+pipeline {
+    agent any
+
+    environment {
+        TF_VERSION = "1.5.0"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/example/multi-cloud-infra.git'
+            }
+        }
+        
+        stage('Terraform Init') {
+            steps {
+                sh 'terraform init'
+            }
+        }
+
+        stage('Terraform Validate') {
+            steps {
+                sh 'terraform validate'
+            }
+        }
+
+        stage('Terraform Plan') {
+            steps {
+                sh 'terraform plan -out=tfplan'
+            }
+        }
+
+        stage('Terraform Apply') {
+            steps {
+                input message: "Apply Terraform changes?", ok: "Apply"
+                sh 'terraform apply tfplan'
+            }
+        }
+    }
+}
 
